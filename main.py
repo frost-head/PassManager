@@ -144,7 +144,7 @@ def register():
         return redirect('/login')
         
 
-    return render_template("Register.html")
+    return render_template("Register.html", page = 'register')
 
 # LOGIN ROUTE
 
@@ -172,7 +172,7 @@ def login():
                 flash('Invalid Log In','danger')
         else:
             flash('User not Found','danger')
-    return render_template('Login.html')
+    return render_template('Login.html', page = 'login')
 
 # LOGOUT ROUTE
 
