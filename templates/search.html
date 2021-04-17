@@ -1,0 +1,55 @@
+{% extends 'Base.html' %}
+
+{% block head %}
+<title>Search Password</title>
+{% endblock %}
+
+{% block body %}
+<div style="position:sticky"></div>
+<div class="separator" style="color: #1e1e1e; font-size: 2.5vmax; ">
+    Search Password
+</div>
+
+<form method="post">
+
+    <div class="form-group">
+        <label for="basic-url">Enter Site URL</label>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon3">https://</span>
+            </div>
+            <input type="text" required="required" class="form-control" name="URL" aria-describedby="basic-addon3"
+                placeholder="lastnightreads.pythonanywhere.com">
+        </div>
+    </div>
+
+    <button type="submit" class="btn button btn-primary">Search</button>
+</form>
+
+
+<table class="table table-responsive-lg table-striped table-bordered " style="margin-top: 5vh; ">
+    <thead class="thead-dark">
+        <tr>
+            <th >URL</th>
+            <th >Username</th>
+            <th>Delete</th>
+            <th>Copy Password</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for info in data: %}
+        <tr>
+            <td >{{info['url']}}</th>
+            <td >{{info['username']}}</th>
+            <td><a href="{{url_for('delete', primarykey = info['primarykey'])}}" class="btn button btn-danger " >Delete </a></th>
+            <td><a href="{{url_for('copy', primarykey = info['primarykey'])}}" class="btn button btn-primary " >Copy </a></th>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<style>
+    
+
+</style>
+
+{% endblock %}

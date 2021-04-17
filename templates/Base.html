@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    {%block head%}
+    {%endblock%}
+</head>
+
+<body style="height:100vh; overflow: scroll; margin-bottom:15vh">
+    {% include 'includes/navbar.html' %}
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+
+    {% if messages %}
+    <div class="notifications">
+        {% for categories, message in messages %}
+            <div class="alert"></div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% endwith %}
+    <div class="container" style="padding-top:10vh">
+        {%block body%}
+        {%endblock%}
+
+        <div class="separator fixed-bottom container" style="color: #1e1e1e; padding-bottom: 1vh;">
+            Copyright Frost Head (c)
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+    <script>
+        ; (function ($) {
+
+            'use strict';
+
+            $('.alert[data-auto-dismiss]').each(function (index, element) {
+                var $element = $(element),
+                    timeout = $element.data('auto-dismiss') || 4000;
+
+                setTimeout(function () {
+                    $element.alert('close');
+                }, timeout);
+            });
+
+        })(jQuery);
+    </script>
+
+
+</body>
+
+</html>
