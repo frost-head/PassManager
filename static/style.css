@@ -1,3 +1,4 @@
+/* Body CSS */
 *{
     padding: 0;
     margin: 0;
@@ -8,100 +9,15 @@
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-}
-
-.alert{
-    position: relative;
-}
-
-.alert-danger{
-    color: red;
-    padding:20px;
-}
-
-.form-group{
-    font-size: 1.5rem;
-    padding: 5px;
-    background-color: blue;   
+    height:100vh; 
+    overflow: scroll; 
+    margin:15vh 0vh;
 }
 
 
-.separator {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin-top: 2vmax;
-    font-family: 'Anton',sans-serif;
-    background-color: #fff;
-    
-}
-.separator::before, .separator::after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px solid #1e1e1e;
-    
-}
-.separator::before {
-    margin-right: .25em;
-}
-.separator::after {
-    margin-left: .25em;
-}
-.button{
-    transition: width 1s;
-}
-.button:hover{
-    transition-delay: 0.5s;
-    transform:scale(1.05);
-}
+/* DESKTOP */
 
-.taglinetext{
-    text-align:center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
-    font-size: 2rem;
-    min-height: 80vh;
-    display:flex;
-    align-items:center;
-    line-height:120px;
-    word-spacing: 30px;
-    letter-spacing: 3px;
-    position: relative;
-    transition: 3s;
-}
-
-@keyframes zoom-in {
-    0% {
-
-        transform: translateZ(1000px);
-        text-shadow: black 20px;
-    }
-
-    100% {
-
-        transform: translateZ(0px);
-        text-shadow: black 20px
-
-    }
-}
-
-.glass{
-    background: rgba(1, 1, 1, 0.2);
-    width:40%;
-    height:40%;
-    display:flex;
-    align-items:center;
-    position: fixed;
-    top: 30%;
-    left: 30%;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border-radius:5px;
-
-}
-
-
+/* navbar CSS */
 .navbar{
     width: 100%;
     display:flex;
@@ -155,3 +71,5 @@ body{
     background-color: #e1e1e1;
     transition: 0.3s
   }
+
+
