@@ -2,11 +2,18 @@
 
 {% block head %}
 <title>Login</title>
+
 {% endblock %}
 
 {% block body %}
+<div class="taglinetext" >
+    <h1>
+        Keep Your Passwords Safe And Secure.
+    </h1>
+</div>
 
-<form method="post">
+<div class="glass icon-lock">
+<form method="post"  style="padding: 20px;">
     <div class="form-group">
         <label for="basic-url">Enter your Username</label>
         <div class="input-group flex-nowrap">
@@ -23,7 +30,9 @@
     </div>
 
     <button type="submit" class="btn button btn-primary">Login</button>
-    <a href = "/register" class="btn btn-outline-success">Register</a>
+
 </form>
+</div>
 
 {% endblock %}
+

@@ -12,24 +12,29 @@
 <body style="height:100vh; overflow: scroll; margin-bottom:15vh">
     {% include 'includes/navbar.html' %}
 
-
+<!--
     {% with messages = get_flashed_messages(with_categories=true) %}
 
     {% if messages %}
     <div class="notifications">
         {% for categories, message in messages %}
-            <div class="alert"></div>
+            <div class="alert">
+                {{message}}
+            </div>
         {% endfor %}
     </div>
     {% endif %}
 
     {% endwith %}
+-->
     <div class="container" style="padding-top:10vh">
         {%block body%}
         {%endblock%}
 
 
     </div>
+
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
