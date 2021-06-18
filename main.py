@@ -29,13 +29,13 @@ mysql.init_app(app)
 
 @app.route('/')
 def home():
-    return render_template('Home.html', page='Home')
+    return render_template('Home.html')
 
 
-@app.route('/RegisterSite', methods=['GET', 'POST'])
-def RegisterSite():
+@app.route('/CPasscodes', methods=['GET', 'POST'])
+def CPasscodes():
     if 'user' not in session:
-        flash("Please Login To Register Site", 'danger')
+        flash("Please Login To Add Password", 'danger')
         return redirect('/login')
     if request.method == 'POST':
         url = request.form['URL']
@@ -61,11 +61,11 @@ def RegisterSite():
     cur.execute("select name from user where uid = {}".format(session['user']))
     data = cur.fetchone()
     cur.close()
-    return render_template("RegisterSite.html", data=data)
+    return render_template("CPasscodes.html", data=data)
 
 
-@app.route('/search/', methods=['GET', 'POST'])
-def search():
+@app.route('/mypasscodes', methods=['GET', 'POST'])
+def mypasscodes():
     if 'user' not in session:
         flash("Please Login To Search Password", 'danger')
         return redirect('/login')
@@ -76,7 +76,7 @@ def search():
             url, session['user']))
         data = cur.fetchall()
         cur.close()
-        return render_template('search.html', data=data)
+        return render_template('mypasscodes.html', data=data)
 
     cur = mysql.connection.cursor()
     cur.execute("Select * from main where uid = {}".format(session['user']))
@@ -84,7 +84,7 @@ def search():
 
     cur.close()
 
-    return render_template('search.html', data=data)
+    return render_template('mypasscodes.html', data=data)
 
 
 @app.route('/copy/<primarykey>')
@@ -151,7 +151,7 @@ def register():
         flash('You are successfully Registered', 'success')
         return redirect('/login')
 
-    return render_template("Register.html", page='register')
+    return render_template("Register.html")
 
 # LOGIN ROUTE
 
@@ -172,18 +172,15 @@ def login():
         if data:
             password = data['password']
             uid = data["uid"]
-            session['user'] = uid
-            """
             if sha256_crypt.verify(passcode,password):
                 session['user'] = uid
                 flash('Successfully logged in', 'success')
-                return redirect(url_for('home'))
+                return redirect('CPasscodes')
             else:
                 flash('Invalid Log In','danger')
-            """
         else:
             flash('User not Found', 'danger')
-    return render_template('Login.html', page='login')
+    return render_template('Login.html')
 
 # LOGOUT ROUTE
 
@@ -193,7 +190,7 @@ def logout():
     if 'user' in session:
         session.pop('user')
         flash('Logged Out', 'danger')
-    return redirect(url_for('login'))
+    return redirect('/')
 
 
 if __name__ == "__main__":

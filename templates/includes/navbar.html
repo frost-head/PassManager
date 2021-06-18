@@ -4,15 +4,15 @@
       Pass Manager
     </h1>
   </a>
-  {% if page=='login' or page=='register' or page=='Home'%}
+  {% if 'user' not in session%}
   <div class="links">
     <a href="/login">Login</a>
     <a href="/register/">Register</a>
   </div>
-  {%else%}
+  {% elif 'user' in session%}
   <div class="links">
-    <a href="/register">Register</a>
-    <a href="/search/">Search</a>
+    <a href="/CPasscodes">Add Password</a>
+    <a href="/mypasscodes">My Passwords</a>
   </div>
   <a class="logout" href="/logout">
     Logout

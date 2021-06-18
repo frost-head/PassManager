@@ -70,6 +70,8 @@ hr {
 }
 
 .Pbutton{
+    text-align: center;
+    width: 140px;
     color:#fefefe;
     background-color: #496de2f8;
     border: 1px solid;
@@ -82,6 +84,8 @@ hr {
 }
 
 .Sbutton{
+    text-align: center;
+    width: 140px;
     color:#496de2f8;
     border: 1px solid #496de2f8;
     border-radius:5px;
@@ -93,6 +97,94 @@ hr {
     background-color: #496de2f8;
     transition: 0.3s
 }
+
+.Ttext{
+    height: 60vh;
+    width: 85vw;
+    position: absolute;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: 3s Ttext;
+    
+}
+
+@keyframes Ttext {
+    0% {opacity:0}
+    20% {opacity:60}
+    50% {opacity:100}
+    100% {opacity:0}
+}
+
+.intro-A {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position:relative;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    animation: 3s Intro;
+}
+
+@keyframes Intro {
+    0% {opacity:0}
+    80% {opacity:0}
+    100% {opacity:100%}
+}
+
+.intro {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position:relative;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+@keyframes fade {
+    0% {opacity:0}
+    30% {opacity:60}
+    50% {opacity:100}
+    100% {opacity:100%}
+}
+
+.c1 {
+    width: 40%;
+}
+
+.c2 {
+    width: 50%;
+}
+
+.H-title {
+    color: #496de2f8;
+}
+.F-title{
+    color: #1e1e1e;
+}
+
+.form-group{
+
+    font-weight:bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 3vmin;
+    font-size: 1.2rem;
+}
+
+input{
+    font-size: 1.1rem;
+    padding: 5px; 
+    border-radius: 8px; 
+    border: 1px solid #1e1e1e
+}
+
 /* DESKTOP */
 
 /* navbar CSS */
@@ -159,71 +251,25 @@ hr {
     position: relative;
 }
 
-.Ttext{
-    height: 60vh;
-    width: 85vw;
-    position: absolute;
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: 3s Ttext;
-    
-}
-/*
-@keyframes Ttext {
-    0% {opacity:0}
-    20% {opacity:60}
-    50% {opacity:100}
-    100% {opacity:0}
-}
-*/
-.intro {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    position:relative;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    animation: 3s Intro;
-}
-/*
-@keyframes Intro {
-    0% {opacity:0}
-    80% {opacity:0}
-    100% {opacity:100%}
-}
-*/
-.c1 {
-    width: 40%;
-}
 
-.H-title {
-    color: #496de2f8;
-}
-
-.c2 {
-    width: 50%;
-}
 .buttons{
-    width: 50%;
+    width: 60%;
     display: flex;
     justify-content: space-around;
     margin-top: 15px;
 }
-.c4 {
-    width: 40%;
+
+
+/*Login Page*/
+
+.Login {
+    padding: 10vmin;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-evenly;
+    animation: 3s fade;
 }
 
-.c3 {
-    width: 50%;
-}
-
-.c5 {
-    width: 40%;
-}
-
-.c6 {
-    width: 50%;
-}

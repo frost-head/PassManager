@@ -9,28 +9,37 @@
     <div class="Ttext">
         <p style='font-size:5.5rem; font-weight:bolder; color: #496de2f8;'>Pass Manager</p>
     </div>
-    <div class="intro">
+    <div class="intro-A">
         <div class="c1">
             <h1 class='H-title'>What's Pass Manager</h1>
 
             <p style='padding-top: 10px;'>
-              A software to keep your Passwords from getting forgot or being stolen. By encrypting them and storing them in a secure vault. All you have to remember is a master password and Boom! you have all your passwords.
+                A software to keep your Passwords from getting forgot or being stolen. By encrypting them and storing
+                them in a secure vault. All you have to remember is a master password and Boom! you have all your
+                passwords.
             </p>
-
+            {% if 'user' not in session%}
             <div class="buttons">
-            <a href="/login" class='Pbutton'>Login</a>
-            <a href="/register" class='Sbutton'>Register</a>
+                <a href="/login" class='Pbutton'>Login</a>
+                <a href="/register" class='Sbutton'>Register</a>
+            </div>
+            {% elif 'user' in session%}
+            <div class="buttons">
+                <a href="/CPasscodes" class='Pbutton'>Add Password</a>
+                <a href="/mypasscodes" class='Sbutton'>My Passwords</a>
+            </div>
+            {% endif %}
+
         </div>
-        </div>
-        
+
         <div class="c2">
             <img src="/static/Safe-cuate.svg" alt="">
         </div>
-        
-        <div class="c3">
+
+        <div class="c2">
             <img src="/static/Safe-bro.svg" alt="">
         </div>
-        <div class="c4">
+        <div class="c1">
             <h1 class='H-title'>Pass Manager</h1>
 
             <p style='padding-top: 10px;'>
@@ -40,7 +49,7 @@
             </p>
 
         </div>
-        <div class="c5">
+        <div class="c1">
             <h1 class='H-title'>Pass Manager</h1>
 
             <p style='padding-top: 10px;'>
@@ -49,7 +58,7 @@
                 quisquam!
             </p>
         </div>
-        <div class="c6">
+        <div class="c2">
             <img src="/static/Security-amico.svg" alt="">
         </div>
     </div>
