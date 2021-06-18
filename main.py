@@ -22,18 +22,20 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 app.secret_key = os.urandom(24)
 etext = '\xb1<\x85\x9f\x18\xe0b\xf3AJb\xce\x94\xd4f\xea\x19@\xc3G\xc6\x8a\xf0'
 
-#intialising MySQL
+# intialising MySQL
 mysql = MySQL()
 mysql.init_app(app)
 
+
 @app.route('/')
 def home():
-    return render_template('Home.html', page = 'Home')
+    return render_template('Home.html', page='Home')
 
-@app.route('/RegisterSite', methods=['GET','POST'])
-def RegisterSite(): 
+
+@app.route('/RegisterSite', methods=['GET', 'POST'])
+def RegisterSite():
     if 'user' not in session:
-        flash("Please Login To Register Site",'danger')
+        flash("Please Login To Register Site", 'danger')
         return redirect('/login')
     if request.method == 'POST':
         url = request.form['URL']
@@ -42,59 +44,61 @@ def RegisterSite():
 
         if username == "":
             username = 'N/A'
-        
+
         # creating passcode
         passcode = get_pass(passlen)
         pyperclip.copy(passcode)
         flash('Password Copied', 'success')
-        passcode = FrostCrypt(str(passcode),etext)
+        passcode = FrostCrypt(str(passcode), etext)
 
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO main (url, username, passcode, uid)VALUES ('{}','{}','{}',{})".format(url,username,passcode,session['user']))
+        cur.execute("INSERT INTO main (url, username, passcode, uid)VALUES ('{}','{}','{}',{})".format(
+            url, username, passcode, session['user']))
         mysql.connection.commit()
         cur.close()
-    
+
     cur = mysql.connection.cursor()
     cur.execute("select name from user where uid = {}".format(session['user']))
     data = cur.fetchone()
     cur.close()
-    return render_template("RegisterSite.html",data=data)
+    return render_template("RegisterSite.html", data=data)
 
-@app.route('/search/', methods=['GET','POST'])
+
+@app.route('/search/', methods=['GET', 'POST'])
 def search():
     if 'user' not in session:
-        flash("Please Login To Search Password",'danger')
+        flash("Please Login To Search Password", 'danger')
         return redirect('/login')
     if request.method == 'POST':
         url = str(request.form['URL'])
         cur = mysql.connection.cursor()
-        cur.execute("select `url`, `username`, `primarykey` from main where `url` REGEXP '{}' and uid = {} ORDER BY date_time DESC".format(url,session['user']))
+        cur.execute("select `url`, `username`, `primarykey` from main where `url` REGEXP '{}' and uid = {} ORDER BY date_time DESC".format(
+            url, session['user']))
         data = cur.fetchall()
         cur.close()
-        return render_template('search.html', data = data)
-
-    
+        return render_template('search.html', data=data)
 
     cur = mysql.connection.cursor()
     cur.execute("Select * from main where uid = {}".format(session['user']))
     data = cur.fetchall()
 
-
     cur.close()
-    
-    return render_template('search.html', data = data)
+
+    return render_template('search.html', data=data)
+
 
 @app.route('/copy/<primarykey>')
 def copy(primarykey):
     if 'user' not in session:
-        flash("Please Login",'danger')
+        flash("Please Login", 'danger')
         return redirect('/login')
     cur = mysql.connection.cursor()
-    cur.execute("select `passcode` from main where `primarykey` = '{}' ORDER BY date_time DESC".format(primarykey))
+    cur.execute(
+        "select `passcode` from main where `primarykey` = '{}' ORDER BY date_time DESC".format(primarykey))
     data = cur.fetchone()
     cur.close()
-    passcode = FrostDCrypt(data['passcode'],etext)
-    
+    passcode = FrostDCrypt(data['passcode'], etext)
+
     try:
         pyperclip.copy(passcode)
     except(PermissionError):
@@ -102,10 +106,11 @@ def copy(primarykey):
     flash('Password Copied', 'success')
     return redirect('/search')
 
+
 @app.route('/delete/<primarykey>')
 def delete(primarykey):
     if 'user' not in session:
-        flash("Please Login",'danger')
+        flash("Please Login", 'danger')
         return redirect('/login')
     cur = mysql.connection.cursor()
     cur.execute("delete from main where primarykey = {}".format(primarykey))
@@ -116,7 +121,8 @@ def delete(primarykey):
 
 # REGISTER ROUTE
 
-@app.route('/register/', methods=['GET','POST'])
+
+@app.route('/register/', methods=['GET', 'POST'])
 def register():
 
     if 'user' in session:
@@ -131,26 +137,26 @@ def register():
         if data:
             flash('This username is already taken', 'danger')
             return redirect('/register')
-        
+
         password = sha256_crypt.encrypt(str(request.form['password']))
         name = request.form['name']
         email = request.form['email']
-        
 
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO user(name, email, password, username) VALUES(%s, %s, %s, %s)",(name, email, password, username))
+        cur.execute("INSERT INTO user(name, email, password, username) VALUES(%s, %s, %s, %s)",
+                    (name, email, password, username))
         mysql.connection.commit()
-        
+
         cur.close()
         flash('You are successfully Registered', 'success')
         return redirect('/login')
-        
 
-    return render_template("Register.html", page = 'register')
+    return render_template("Register.html", page='register')
 
 # LOGIN ROUTE
 
-@app.route('/login', methods=['GET','POST'])
+
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if 'user' in session:
         return redirect('/RegisterSite')
@@ -159,7 +165,8 @@ def login():
         passcode = request.form['password']
 
         cur = mysql.connection.cursor()
-        cur.execute("select uid,password from user where username = %s",[username])
+        cur.execute(
+            "select uid,password from user where username = %s", [username])
         data = cur.fetchone()
         cur.close()
         if data:
@@ -175,10 +182,11 @@ def login():
                 flash('Invalid Log In','danger')
             """
         else:
-            flash('User not Found','danger')
-    return render_template('Login.html', page = 'login')
+            flash('User not Found', 'danger')
+    return render_template('Login.html', page='login')
 
 # LOGOUT ROUTE
+
 
 @app.route('/logout')
 def logout():
@@ -189,4 +197,4 @@ def logout():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, host = '0.0.0.0')
+    app.run(debug=True, host='0.0.0.0')

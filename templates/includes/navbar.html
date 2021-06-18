@@ -1,23 +1,22 @@
 <nav class="navbar">
   <a href="/">
     <h1 class="title">
-        Pass Manager
+      Pass Manager
     </h1>
-  </a>  
-    {% if page=='login' or page=='register' or page=='Home'%}
-    <div class="links">
-      <a href="/login">Login</a>
-      <a href="/register/">Register</a>
-    </div>
-    {%else%}
-    <div class="links">
-      <a href="/register">Register</a>
-      <a href="/search/">Search</a>
-    </div>
-    <a class="logout" href="/logout">
-      Logout
-    </a>
-    {% endif %}
-  
-</nav>
+  </a>
+  {% if page=='login' or page=='register' or page=='Home'%}
+  <div class="links">
+    <a href="/login">Login</a>
+    <a href="/register/">Register</a>
+  </div>
+  {%else%}
+  <div class="links">
+    <a href="/register">Register</a>
+    <a href="/search/">Search</a>
+  </div>
+  <a class="logout" href="/logout">
+    Logout
+  </a>
+  {% endif %}
 
+</nav>
