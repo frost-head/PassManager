@@ -174,14 +174,14 @@ hr {
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
-    margin: 3vmin;
+    margin: 3vmin 0vmin;
     font-size: 1.2rem;
 }
 
 input{
     font-size: 1.1rem;
-    padding: 5px; 
-    border-radius: 8px; 
+    padding: 5px 5px; 
+    border-radius: 5px; 
     border: 1px solid #1e1e1e
 }
 
@@ -263,13 +263,26 @@ input{
 /*Login Page*/
 
 .Login {
-    padding: 10vmin;
+    padding: 10vmin 2vmin;
     display: flex;
     height: 100vh;
     width: 100vw;
     flex-direction: row;
     align-items: center;
-    justify-content:space-evenly;
+    justify-content:space-between;
+    animation: 3s fade;
+}
+
+/*Register Page*/
+
+.Register {
+    padding: 10vmin 2vin;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
     animation: 3s fade;
 }
 
