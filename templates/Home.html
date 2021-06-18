@@ -1,49 +1,45 @@
 {% extends 'Base.html' %}
 
 {%block head%}
-<title>Register Site</title>
+<title>Home</title>
 {%endblock%}
 
 {%block body%}
-<div class = "jumbotron animated fadeinup" style ="padding:2vmin">
-<h1> Hello, {{data['name']}} </h1>
-<hr>
-Wellcome to PassManager A free valut to store all your password safely and not worrying about them at all.
-</div>
-<div class="separator" style="color: #1e1e1e; font-size: 2.5vmax; ">
-    Register Site
-</div>
-<form method="post">
-
-    <div class="form-group">
-        <label for="basic-url">Enter Site URL</label>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon3">https://</span>
-            </div>
-            <input type="text" required="required" class="form-control" name="URL" aria-describedby="basic-addon3"
-                placeholder="lastnightreads.pythonanywhere.com">
+<div class="Home" >
+    <div class="intro">
+        <div class="c1">
+            <h1 class = 'H-title'>Pass Manager</h1>
+            
+            <p style='padding-top: 10px;'>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati mollitia iure atque optio harum. Fugiat itaque est quam? Ut perferendis voluptate sit adipisci cumque hic accusantium blanditiis nihil a quisquam!
+            </p>
+        </div>
+        <div class="c2">
+            <img src="/static/Safe-cuate.svg" alt="">
+        </div>
+        <div class="c3">
+            <img src="/static/Safe-bro.svg" alt="">
+        </div>
+        <div class="c4">
+            <h1  class = 'H-title'>Pass Manager</h1>
+            
+            <p style='padding-top: 10px;'>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati mollitia iure atque optio harum. Fugiat itaque est quam? Ut perferendis voluptate sit adipisci cumque hic accusantium blanditiis nihil a quisquam!
+            </p>
+        </div>
+        <div class="c5">
+            <h1 class = 'H-title'>Pass Manager</h1>
+            
+            <p style='padding-top: 10px;'>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati mollitia iure atque optio harum. Fugiat itaque est quam? Ut perferendis voluptate sit adipisci cumque hic accusantium blanditiis nihil a quisquam!
+            </p>
+        </div>
+        <div class="c6">
+            <img src="/static/Security-amico.svg" alt="">
         </div>
     </div>
+    
 
-    <div class="form-group">
-        <label for="basic-url">Enter Username for Site</label>
-        <div class="input-group flex-nowrap">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="addon-wrapping">@</span>
-            </div>
-            <input type="text" value='FrostHead' name="Username" class="form-control" placeholder="Username"
-                aria-label="Username" aria-describedby="addon-wrapping">
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="inputAddress">Password Length</label>
-        <input type="number" value='15' class="form-control" id="inputAddress" name="passlen" required="required">
-    </div>
-
-    <button type="submit" class="btn button btn-primary">Submit</button>
-</form>
-
+</div>
 
 {%endblock%}

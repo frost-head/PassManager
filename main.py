@@ -26,10 +26,12 @@ etext = '\xb1<\x85\x9f\x18\xe0b\xf3AJb\xce\x94\xd4f\xea\x19@\xc3G\xc6\x8a\xf0'
 mysql = MySQL()
 mysql.init_app(app)
 
+@app.route('/')
+def home():
+    return render_template('Home.html', page = 'Home')
 
-
-@app.route('/', methods=['GET','POST'])
-def home(): 
+@app.route('/RegisterSite', methods=['GET','POST'])
+def RegisterSite(): 
     if 'user' not in session:
         flash("Please Login To Register Site",'danger')
         return redirect('/login')
@@ -56,7 +58,7 @@ def home():
     cur.execute("select name from user where uid = {}".format(session['user']))
     data = cur.fetchone()
     cur.close()
-    return render_template("Home.html",data=data)
+    return render_template("RegisterSite.html",data=data)
 
 @app.route('/search/', methods=['GET','POST'])
 def search():
@@ -118,7 +120,7 @@ def delete(primarykey):
 def register():
 
     if 'user' in session:
-        return redirect(url_for('home'))
+        return redirect('/RregisterSite')
 
     if request.method == 'POST':
         username = request.form['uname']
@@ -151,7 +153,7 @@ def register():
 @app.route('/login', methods=['GET','POST'])
 def login():
     if 'user' in session:
-        return redirect('/')
+        return redirect('/RegisterSite')
     if request.method == 'POST':
         username = request.form['uname']
         passcode = request.form['password']

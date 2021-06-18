@@ -11,9 +11,58 @@ body{
     font-family:Arial, Helvetica, sans-serif;
     height:100vh; 
     overflow: scroll; 
-    margin:15vh 0vh;
+    margin: 0vh 0vw;
 }
 
+h1{
+    text-align:justify;
+    font-size: 2.5rem;
+    word-spacing:2px;
+    letter-spacing: 0.5px;
+}
+h2{
+    text-align:justify;
+    font-size: 2.2rem;
+    word-spacing:2px;
+    letter-spacing: 0.5px;
+}
+h3{
+    text-align:justify;
+    word-spacing:2px;
+    letter-spacing: 0.5px;
+    font-size: 1.9rem;
+}
+h4{
+    text-align:justify;
+    word-spacing:2px;
+    letter-spacing: 0.5px;
+    font-size: 1.6rem;
+}
+h5{
+    text-align:justify;
+    word-spacing:2px;
+    letter-spacing: 0.5px;
+    font-size: 1.3rem;
+    opacity:0.7;
+}
+h6{
+    text-align:justify;
+    word-spacing:2px;
+    letter-spacing: 0.5px;
+    font-size: 1rem;
+    opacity:0.7;
+}
+
+p{
+    font-size: 1.2rem;
+    word-spacing:2px;
+    letter-spacing: 0.5px; 
+    text-align: justify;
+}
+
+hr{
+    margin:5px;
+}
 
 /* DESKTOP */
 
@@ -24,7 +73,7 @@ body{
     flex-direction:row;
     align-items:baseline;
     justify-content:space-between;
-    background-color: rgba(1, 1, 1, 0.82);
+    background-color: #496de2f8;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     position:fixed;
@@ -38,9 +87,10 @@ body{
     font-size: 1.5rem;
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #e1e1e1;
+    color: #fefefe;
   
   }
+  
   
   .links a{
     text-decoration: none;
@@ -48,28 +98,77 @@ body{
     font-size: 1rem;
     opacity: 0.8;
     
-    color: #e1e1e1;
+    color: #fefefe;
     transition: 0.3s;
   }
   
   .links a:hover{
     position:static;
-    color: #e1e1e1;
+    color: #fefefe;
     font-size: 1.1rem;
     opacity: 1;
     transition: 0.3s;
   }
   .logout{
     text-decoration: none;
-    color: #e1e1e1;
+    color: #fefefe;
     padding: 8px;
-    background-color: #1e1e1e;
+    background-color: #496de2f8;
     border-radius: 5px;
   }
   .logout:hover{
     color: #ff2424;
-    background-color: #e1e1e1;
+    background-color: #fefefe;
     transition: 0.3s
   }
 
+/*Home Page*/
+.Home{
 
+    padding: 10vmin;
+    overflow-x: hidden;
+    margin-top: 10vh;
+}
+
+.intro{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items:center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.c1{
+    width: 40%;
+    
+}
+
+.H-title{
+    color: #496de2f8;
+}
+
+.c2{
+    width: 50%;
+    
+}
+
+.c4{
+    width: 40%;
+    
+}
+
+.c3{
+    width: 50%;
+    
+}
+
+.c5{
+    width: 40%;
+    
+}
+
+.c6{
+    width: 50%;
+    
+}
