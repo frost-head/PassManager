@@ -5,51 +5,62 @@
 {% endblock %}
 
 {% block body %}
-<div style="position:sticky"></div>
-<div class="separator" style="color: #1e1e1e; font-size: 2.5vmax; ">
-    Search Password
+<div class="mypasscodes">
+
+<div class="b1 intro">
+<div class ='c1'>
+    <h1 class='H-title'>My Passwords</h1>
+    <p style='padding-top: 10px;'>
+        A software to keep your Passwords from getting forgot or being stolen. By encrypting them and storing
+        them in a secure vault. All you have to remember is a master password and Boom! you have all your
+        passwords.
+    </p>
 </div>
-
 <form method="post">
-
-    <div class="form-group">
-        <label for="basic-url">Enter Site URL</label>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="basic-addon3">https://</span>
-            </div>
-            <input type="text" required="required" class="form-control" name="URL" aria-describedby="basic-addon3"
+    <h1 class='H-title'>Search</h1>
+    <div class="form-group ">
+        <label for="basic-url" class="c1 F-title">URL</label>
+        
+            <input type="text" required="required" class="form-control c2" name="URL" aria-describedby="basic-addon3"
                 placeholder="lastnightreads.pythonanywhere.com">
-        </div>
+
     </div>
 
-    <button type="submit" class="btn button btn-primary">Search</button>
+    <button type="submit" class="Pbutton">Search</button>
 </form>
 
+</div>
 
-<table class="table table-responsive-lg table-striped table-bordered " style="margin-top: 5vh; ">
-    <thead class="thead-dark">
-        <tr>
-            <th >URL</th>
-            <th >Username</th>
-            <th>Delete</th>
-            <th>Copy Password</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for info in data: %}
-        <tr>
-            <td >{{info['url']}}</th>
-            <td >{{info['username']}}</th>
-            <td><a href="{{url_for('delete', primarykey = info['primarykey'])}}" class="btn button btn-danger " >Delete </a></th>
-            <td><a href="{{url_for('copy', primarykey = info['primarykey'])}}" class="btn button btn-primary " >Copy </a></th>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-<style>
+<div class="b2">
+    {% if data%}
+        <table rules='all'  style="width: 95%;">
+            <thead>
+                <tr>
+                    <th >URL</th>
+                    <th >Username</th>
+                    <th>Delete</th>
+                    <th>Copy</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for info in data: %}
+                <tr>
+                    <td style='width:50%'>{{info['url']}}</th>
+                    <td style='width:25%' >{{info['username']}}</th>
+                    <td style='width:13%'><a href="{{url_for('delete', primarykey = info['primarykey'])}}" class="Dbutton" >Delete </a></th>
+                    <td style='width:13%'><a href="{{url_for('copy', primarykey = info['primarykey'])}}" class="Pbutton " >Copy </a></th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% elif 'user' in session%}
+    <h1 style='padding:5vmin 0vmin;' class='H-title '>No Passwords Added Yet!</h1>
+
+    <a href="/CPasscodes" style='margin-top:20vh;' class='Sbutton'>Add Password</a>
     
+    {% endif %}
 
-</style>
+</div>
+</div>
 
 {% endblock %}

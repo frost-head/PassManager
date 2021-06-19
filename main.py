@@ -105,7 +105,7 @@ def copy(primarykey):
     except(PermissionError):
         print("There is an error!")
     flash('Password Copied', 'success')
-    return redirect('/search')
+    return redirect('/mypasscodes')
 
 
 @app.route('/delete/<primarykey>')
@@ -118,7 +118,7 @@ def delete(primarykey):
     mysql.connection.commit()
     cur.close()
     flash('Password Deleted', 'danger')
-    return redirect('/search')
+    return redirect('/mypasscodes')
 
 # REGISTER ROUTE
 
