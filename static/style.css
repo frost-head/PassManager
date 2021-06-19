@@ -15,35 +15,35 @@ body {
 }
 
 h1 {
-    text-align: justify;
+
     font-size: 2.5rem;
     word-spacing: 2px;
     letter-spacing: 0.5px;
 }
 
 h2 {
-    text-align: justify;
+
     font-size: 2.2rem;
     word-spacing: 2px;
     letter-spacing: 0.5px;
 }
 
 h3 {
-    text-align: justify;
+
     word-spacing: 2px;
     letter-spacing: 0.5px;
     font-size: 1.9rem;
 }
 
 h4 {
-    text-align: justify;
+
     word-spacing: 2px;
     letter-spacing: 0.5px;
     font-size: 1.6rem;
 }
 
 h5 {
-    text-align: justify;
+
     word-spacing: 2px;
     letter-spacing: 0.5px;
     font-size: 1.3rem;
@@ -51,7 +51,7 @@ h5 {
 }
 
 h6 {
-    text-align: justify;
+
     word-spacing: 2px;
     letter-spacing: 0.5px;
     font-size: 1rem;
@@ -139,6 +139,7 @@ hr {
     padding: 0;
     display: flex;
     position:relative;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -153,11 +154,14 @@ hr {
 }
 
 .c1 {
-    width: 40%;
+    flex-basis: 40%;
+    padding: 10px;
 }
 
 .c2 {
-    width: 50%;
+    flex-basis: 50%;
+    padding: 10px;
+    
 }
 
 .H-title {
@@ -173,6 +177,7 @@ hr {
     display: flex;
     flex-direction: row;
     align-items: center;
+
     flex-wrap: wrap;
     margin: 3vmin 0vmin;
     font-size: 1.2rem;
@@ -286,3 +291,16 @@ input{
     animation: 3s fade;
 }
 
+/* CPasscodes */
+
+.CPasscodes{
+    padding: 10vmin 2vmin;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+    flex-wrap: wrap;
+    animation: 3s fade;
+}

@@ -19,6 +19,7 @@ app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'TonyStark@7018439751'
 app.config['MYSQL_DB'] = 'PassManager'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.secret_key = os.urandom(24)
 etext = '\xb1<\x85\x9f\x18\xe0b\xf3AJb\xce\x94\xd4f\xea\x19@\xc3G\xc6\x8a\xf0'
 
