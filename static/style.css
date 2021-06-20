@@ -269,7 +269,7 @@ input{
 }
 
 .logout:hover {
-    color: #ff2424;
+    color:#e24949f8;
     background-color: #fefefe;
     transition: 0.3s
 }
@@ -301,7 +301,7 @@ input{
     width: 100vw;
     flex-direction: row;
     align-items: center;
-    justify-content:space-between;
+    justify-content:space-around;
     animation: 3s fade;
 }
 
@@ -314,7 +314,7 @@ input{
     width: 100vw;
     flex-direction: row;
     align-items: center;
-    justify-content:space-between;
+    justify-content:space-around;
     animation: 3s fade;
 }
 
@@ -328,7 +328,7 @@ input{
     width: 100vw;
     flex-direction: row;
     align-items: center;
-    justify-content:space-between;
+    justify-content:space-around;
     flex-wrap: wrap;
     animation: 3s fade;
 }
@@ -348,6 +348,7 @@ input{
 .b2{
     display: flex;
     justify-content: center;
+    
 }
 
 .b1{
