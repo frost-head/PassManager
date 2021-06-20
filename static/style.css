@@ -1,75 +1,377 @@
 /* Body CSS */
-*{
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    height: 100vh;
+    overflow: scroll;
+    margin: 0vh 0vw;
+}
+
+
+h1 {
+
+    font-size: 2.5rem;
+    word-spacing: 2px;
+    letter-spacing: 0.5px;
+}
+
+h2 {
+
+    font-size: 2.2rem;
+    word-spacing: 2px;
+    letter-spacing: 0.5px;
+}
+
+h3 {
+
+    word-spacing: 2px;
+    letter-spacing: 0.5px;
+    font-size: 1.9rem;
+}
+
+h4 {
+
+    word-spacing: 2px;
+    letter-spacing: 0.5px;
+    font-size: 1.6rem;
+}
+
+h5 {
+
+    word-spacing: 2px;
+    letter-spacing: 0.5px;
+    font-size: 1.3rem;
+    opacity: 0.7;
+}
+
+h6 {
+
+    word-spacing: 2px;
+    letter-spacing: 0.5px;
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
+p {
+    font-size: 1.2rem;
+    word-spacing: 2px;
+    letter-spacing: 0.5px;
+    text-align: justify;
+}
+
+hr {
+    margin: 5px;
+}
+
+.Pbutton{
+    font-size:1rem;
+    text-align: center;
+    width: 140px;
+    color:#fefefe;
+    background-color: #496de2f8;
+    border: 1px solid;
+    border-radius:5px;
+    padding: 10px 15px;
+}
+.Pbutton:hover{
+    font-size:1rem;
+    background-color: #395ccf;
+    transition: 0.3s
+}
+
+.Sbutton{
+    font-size:1rem;
+    text-align: center;
+    width: 140px;
+    color:#496de2f8;
+    border: 1px solid #496de2f8;
+    border-radius:5px;
+    padding: 10px 15px;
+}
+
+.Sbutton:hover{
+    font-size:1rem;
+    color:#fefefe;
+    background-color: #496de2f8;
+    transition: 0.3s
+}
+
+.Dbutton{
+    font-size:1rem;
+    text-align: center;
+    width: 140px;
+    color:#e24949f8;
+    border: 1px solid #e24949f8;
+    border-radius:5px;
+    padding: 10px 15px;
+}
+
+.Dbutton:hover{
+    font-size:1rem;
+    color:#fefefe;
+    background-color: #e24949f8;
+    transition: 0.3s
+}
+
+.Ttext{
+
+    font-weight: bolder;
+    height: 60vh;
+    width: 100vw;
+    position: absolute;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: 3s Ttext;
+}
+
+@keyframes Ttext {
+    0% {opacity:0}
+    20% {opacity:60}
+    50% {opacity:100}
+    100% {opacity:0}
+}
+
+.intro-A {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position:relative;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    animation: 3s Intro;
+}
+
+@keyframes Intro {
+    0% {opacity:0}
+    80% {opacity:0}
+    100% {opacity:100%}
+}
+
+.intro {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position:relative;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+@keyframes fade {
+    0% {opacity:0}
+    30% {opacity:60}
+    50% {opacity:100}
+    100% {opacity:100%}
+}
+
+.c1 {
+    flex-basis: 40%;
+    padding: 10px;
+}
+
+.c2 {
+    flex-basis: 50%;
+    padding: 10px;
     
 }
 
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    height:100vh; 
-    overflow: scroll; 
-    margin:15vh 0vh;
+.H-title {
+
+    color: #496de2f8;
+}
+.F-title{
+
+    color: #1e1e1e;
 }
 
+.form-group{
+
+    font-weight:bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    flex-wrap: wrap;
+    margin: 3vmin 0vmin;
+    font-size: 1.2rem;
+}
+
+input{
+    font-size: 1.1rem;
+    padding: 5px 5px; 
+    border-radius: 5px; 
+    border: 1px solid #1e1e1e
+}
 
 /* DESKTOP */
 
 /* navbar CSS */
-.navbar{
+
+.navbar {
     width: 100%;
-    display:flex;
-    flex-direction:row;
-    align-items:baseline;
-    justify-content:space-between;
-    background-color: rgba(1, 1, 1, 0.82);
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    background-color: #496de2f8;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    position:fixed;
+    position: fixed;
     top: 0;
-    padding: 2px 40px 5px 20px ;
+    padding: 2px 40px 5px 20px;
     z-index: 5;
-  
-  }
-  
-  .title{
+}
+
+.title {
+
     font-size: 1.5rem;
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #e1e1e1;
-  
-  }
-  
-  .links a{
+    color: #fefefe;
+}
+
+.links a {
     text-decoration: none;
     padding-left: 20px;
     font-size: 1rem;
     opacity: 0.8;
-    
-    color: #e1e1e1;
+    color: #fefefe;
     transition: 0.3s;
-  }
-  
-  .links a:hover{
-    position:static;
-    color: #e1e1e1;
+}
+
+.links a:hover {
+    position: static;
+    color: #fefefe;
     font-size: 1.1rem;
     opacity: 1;
     transition: 0.3s;
-  }
-  .logout{
+}
+
+.logout {
     text-decoration: none;
-    color: #e1e1e1;
+    color: #fefefe;
     padding: 8px;
-    background-color: #1e1e1e;
+    background-color: #496de2f8;
     border-radius: 5px;
-  }
-  .logout:hover{
-    color: #ff2424;
-    background-color: #e1e1e1;
+}
+
+.logout:hover {
+    color:#e24949f8;
+    background-color: #fefefe;
     transition: 0.3s
-  }
+}
+
+/*Home Page*/
+
+.Home {
+    padding: 10vmin 2vmin;
+    overflow-x: hidden;
+    margin-top: 10vh;
+    position: relative;
+}
 
 
+.buttons{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+
+/*Login Page*/
+
+.Login {
+    padding: 10vmin 2vmin;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    animation: 3s fade;
+}
+
+/*Register Page*/
+
+.Register {
+    padding: 10vmin 2vin;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    animation: 3s fade;
+}
+
+/* CPasscodes */
+
+.CPasscodes{
+    overflow-x: hidden;
+    padding: 10vmin 2vmin;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    flex-wrap: wrap;
+    animation: 3s fade;
+}
+
+
+/* My Passcodes */
+
+.mypasscodes{
+    overflow: hidden;
+    padding: 10vmin 2vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.b2{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.b1{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 8vh;
+}
+
+table{
+    border: 3px solid #496de2f8;
+    margin-top: 10vmin;
+}
+
+
+th{
+    padding: 20px 5px;
+    background-color: #496de2f8;
+    color: #fefefe;
+    font-size: 20px;
+}
+
+td{
+    padding: 20px;
+    text-align: center;
+}

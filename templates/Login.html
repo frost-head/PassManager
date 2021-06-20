@@ -6,33 +6,38 @@
 {% endblock %}
 
 {% block body %}
-<div class="taglinetext" >
-    <h1>
-        Keep Your Passwords Safe And Secure.
-    </h1>
-</div>
 
-<div class="glass icon-lock">
-<form method="post"  style="padding: 20px;">
-    <div class="form-group">
-        <label for="basic-url">Enter your Username</label>
-        <div class="input-group flex-nowrap">
-            <input type="text" required='required' name="uname" class="form-control" placeholder="Frost Head" aria-describedby="addon-wrapping">
+<div class="Login">
+        <div class="c1">
+            <img src="/static/Security-amico.svg" alt="">
         </div>
-    </div>
 
-    <div class="form-group">
-        <label for="basic-url">Enter your Password</label>
-        <div class="input-group flex-nowrap">
-            <input type="password" name="password" required='required' class="form-control" 
-               aria-describedby="addon-wrapping">
+        <div class="c2">
+        <h1 class='H-title'>Log in</h1>
+        <form method="post">
+            <div class="form-group ">
+                <label for="basic-url" class='F-title c1'>Username</label>
+
+                <input type="text" required='required' name="uname" class="form-control c2" placeholder="Frost Head"
+                        aria-describedby="addon-wrapping">
+
+            </div>
+
+            <div class="form-group">
+                <label for="basic-url" class='c1 F-title'>Password</label>
+                
+                    <input type="password" name="password" required='required' class="form-control c2"
+                        aria-describedby="addon-wrapping">
+
+            </div>
+
+            <button type="submit" class="Pbutton">Login</button>
+
+        </form>
         </div>
-    </div>
+        
 
-    <button type="submit" class="btn button btn-primary">Login</button>
 
-</form>
 </div>
 
 {% endblock %}
-
