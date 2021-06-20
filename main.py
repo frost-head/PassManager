@@ -21,7 +21,7 @@ app.config['MYSQL_DB'] = 'PassManager'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.secret_key = os.urandom(24)
-etext = '\xb1<\x85\x9f\x18\xe0b\xf3AJb\xce\x94\xd4f\xea\x19@\xc3G\xc6\x8a\xf0'
+
 
 # intialising MySQL
 mysql = MySQL()
@@ -50,11 +50,12 @@ def CPasscodes():
         passcode = get_pass(passlen)
         pyperclip.copy(passcode)
         flash('Password Copied', 'success')
+        etext = get_pass(128)
         passcode = FrostCrypt(str(passcode), etext)
-
+        Etext = FrostCrypt(str(etext), str(session['user']))
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO main (url, username, passcode, uid)VALUES ('{}','{}','{}',{})".format(
-            url, username, passcode, session['user']))
+        cur.execute("INSERT INTO main (url, username, passcode, uid, etext)VALUES ('{}','{}','{}',{},'{}')".format(
+            url, username, passcode, session['user'], Etext))
         mysql.connection.commit()
         cur.close()
 
@@ -95,9 +96,10 @@ def copy(primarykey):
         return redirect('/login')
     cur = mysql.connection.cursor()
     cur.execute(
-        "select `passcode` from main where `primarykey` = '{}' ORDER BY date_time DESC".format(primarykey))
+        "select `passcode`,`etext` from main where `primarykey` = '{}' ORDER BY date_time DESC".format(primarykey))
     data = cur.fetchone()
     cur.close()
+    etext = FrostDCrypt(data['etext'], str(session['user']))
     passcode = FrostDCrypt(data['passcode'], etext)
 
     try:
