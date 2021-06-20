@@ -65,6 +65,36 @@ def CPasscodes():
     cur.close()
     return render_template("CPasscodes.html", data=data)
 
+@app.route('/CPasscodes1', methods=['GET', 'POST'])
+def CPasscodes1():
+    if 'user' not in session:
+        flash("Please Login To Add Password", 'danger')
+        return redirect('/login')
+    if request.method == 'POST':
+        url = request.form['URL']
+        username = request.form['Username']
+        passcode = request.form['passcode']
+
+        if username == "":
+            username = 'N/A'
+
+        pyperclip.copy(passcode)
+        flash('Password Copied', 'success')
+        etext = get_pass(128)
+        passcode = FrostCrypt(str(passcode), etext)
+        Etext = FrostCrypt(str(etext), str(session['user']))
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO main (url, username, passcode, uid, etext)VALUES ('{}','{}','{}',{},'{}')".format(
+            url, username, passcode, session['user'], Etext))
+        mysql.connection.commit()
+        cur.close()
+
+    cur = mysql.connection.cursor()
+    cur.execute("select name, username from user where uid = {}".format(session['user']))
+    data = cur.fetchone()
+    cur.close()
+    return render_template("CPasscodes1.html", data=data)
+
 
 @app.route('/mypasscodes', methods=['GET', 'POST'])
 def mypasscodes():
