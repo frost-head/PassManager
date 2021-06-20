@@ -36,6 +36,7 @@
         <table rules='all'  style="width: 95%;">
             <thead>
                 <tr>
+                    <th >Date Time</th>
                     <th >URL</th>
                     <th >Username</th>
                     <th>Delete</th>
@@ -45,6 +46,7 @@
             <tbody>
                 {% for info in data: %}
                 <tr>
+                    <td style='width:10%'>{{info['date_time']}}</th>
                     <td style='width:50%'>{{info['url']}}</th>
                     <td style='width:25%' >{{info['username']}}</th>
                     <td style='width:13%'><a href="{{url_for('delete', primarykey = info['primarykey'])}}" class="Dbutton" >Delete </a></th>

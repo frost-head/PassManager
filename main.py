@@ -104,14 +104,14 @@ def mypasscodes():
     if request.method == 'POST':
         url = str(request.form['URL'])
         cur = mysql.connection.cursor()
-        cur.execute("select `url`, `username`, `primarykey` from main where `url` REGEXP '{}' and uid = {} ORDER BY date_time DESC".format(
+        cur.execute("select `url`, `username`, `primarykey`,`date_time` from main where `url` REGEXP '{}' and uid = {} order by `date_time` DESC".format(
             url, session['user']))
         data = cur.fetchall()
         cur.close()
         return render_template('mypasscodes.html', data=data)
 
     cur = mysql.connection.cursor()
-    cur.execute("Select * from main where uid = {}".format(session['user']))
+    cur.execute("Select * from main where uid = {} order by date_time DESC".format(session['user']))
     data = cur.fetchall()
 
     cur.close()
