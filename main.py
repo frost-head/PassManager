@@ -3,11 +3,11 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, session
 from flask_mysqldb import MySQL
 import os
-#from passlib.hash import pbkdf2_sha256
 from passlib.hash import sha256_crypt
 from FrostCryption import *
-from PassMaker import *
+from PassMaker import get_pass
 import pyperclip
+#from SendEmails import *
 
 
 # CONFIG
@@ -65,6 +65,7 @@ def CPasscodes():
     cur.close()
     return render_template("CPasscodes.html", data=data)
 
+
 @app.route('/CPasscodes1', methods=['GET', 'POST'])
 def CPasscodes1():
     if 'user' not in session:
@@ -90,7 +91,8 @@ def CPasscodes1():
         cur.close()
 
     cur = mysql.connection.cursor()
-    cur.execute("select name, username from user where uid = {}".format(session['user']))
+    cur.execute(
+        "select name, username from user where uid = {}".format(session['user']))
     data = cur.fetchone()
     cur.close()
     return render_template("CPasscodes1.html", data=data)
@@ -111,7 +113,8 @@ def mypasscodes():
         return render_template('mypasscodes.html', data=data)
 
     cur = mysql.connection.cursor()
-    cur.execute("Select * from main where uid = {} order by date_time DESC".format(session['user']))
+    cur.execute(
+        "Select * from main where uid = {} order by date_time DESC".format(session['user']))
     data = cur.fetchall()
 
     cur.close()
@@ -205,18 +208,18 @@ def login():
         if data:
             password = data['password']
             uid = data["uid"]
-            if sha256_crypt.verify(passcode,password):
+            if sha256_crypt.verify(passcode, password):
                 session['user'] = uid
                 flash('Successfully logged in', 'success')
                 return redirect('CPasscodes')
             else:
-                flash('Invalid Log In','danger')
+                flash('Invalid Log In', 'danger')
         else:
             flash('User not Found', 'danger')
     return render_template('Login.html')
 
-# LOGOUT ROUTE
 
+# LOGOUT ROUTE
 
 @app.route('/logout')
 def logout():

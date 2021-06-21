@@ -15,37 +15,31 @@ body {
     margin: 0vh 0vw;
 }
 
-
 h1 {
-
     font-size: 2.5rem;
     word-spacing: 2px;
     letter-spacing: 0.5px;
 }
 
 h2 {
-
     font-size: 2.2rem;
     word-spacing: 2px;
     letter-spacing: 0.5px;
 }
 
 h3 {
-
     word-spacing: 2px;
     letter-spacing: 0.5px;
     font-size: 1.9rem;
 }
 
 h4 {
-
     word-spacing: 2px;
     letter-spacing: 0.5px;
     font-size: 1.6rem;
 }
 
 h5 {
-
     word-spacing: 2px;
     letter-spacing: 0.5px;
     font-size: 1.3rem;
@@ -53,7 +47,6 @@ h5 {
 }
 
 h6 {
-
     word-spacing: 2px;
     letter-spacing: 0.5px;
     font-size: 1rem;
@@ -72,65 +65,65 @@ hr {
 }
 
 button {
-    font-size:1rem;
+    font-size: 1rem;
     text-align: center;
     width: 140px;
     padding: 10px 15px;
     border: 1px solid;
 }
 
-.Pbutton{
-    font-size:1rem;
+.Pbutton {
+    font-size: 1rem;
     text-align: center;
     width: 140px;
-    color:#fefefe;
+    color: #fefefe;
     background-color: #496de2f8;
     border: 1px solid;
-    border-radius:5px;
+    border-radius: 5px;
     padding: 10px 15px;
 }
-.Pbutton:hover{
-    font-size:1rem;
+
+.Pbutton:hover {
+    font-size: 1rem;
     background-color: #395ccf;
     transition: 0.3s
 }
 
-.Sbutton{
-    font-size:1rem;
+.Sbutton {
+    font-size: 1rem;
     text-align: center;
     width: 140px;
-    color:#496de2f8;
+    color: #496de2f8;
     border: 1px solid #496de2f8;
-    border-radius:5px;
+    border-radius: 5px;
     padding: 10px 15px;
 }
 
-.Sbutton:hover{
-    font-size:1rem;
-    color:#fefefe;
+.Sbutton:hover {
+    font-size: 1rem;
+    color: #fefefe;
     background-color: #496de2f8;
     transition: 0.3s
 }
 
-.Dbutton{
-    font-size:1rem;
+.Dbutton {
+    font-size: 1rem;
     text-align: center;
     width: 140px;
-    color:#e24949f8;
+    color: #e24949f8;
     border: 1px solid #e24949f8;
-    border-radius:5px;
+    border-radius: 5px;
     padding: 10px 15px;
 }
 
-.Dbutton:hover{
-    font-size:1rem;
-    color:#fefefe;
+.Dbutton:hover {
+    font-size: 1rem;
+    color: #fefefe;
     background-color: #e24949f8;
     transition: 0.3s
 }
 
-.Ttext{
-
+.Ttext {
     font-weight: bolder;
     height: 60vh;
     width: 100vw;
@@ -143,17 +136,25 @@ button {
 }
 
 @keyframes Ttext {
-    0% {opacity:0}
-    20% {opacity:60}
-    50% {opacity:100}
-    100% {opacity:0}
+    0% {
+        opacity: 0
+    }
+    20% {
+        opacity: 60
+    }
+    50% {
+        opacity: 100
+    }
+    100% {
+        opacity: 0
+    }
 }
 
 .intro-A {
     margin: 0;
     padding: 0;
     display: flex;
-    position:relative;
+    position: relative;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -161,28 +162,41 @@ button {
 }
 
 @keyframes Intro {
-    0% {opacity:0}
-    80% {opacity:0}
-    100% {opacity:100%}
+    0% {
+        opacity: 0
+    }
+    80% {
+        opacity: 0
+    }
+    100% {
+        opacity: 100%
+    }
 }
 
 .intro {
     margin: 0;
     padding: 0;
     display: flex;
-    position:relative;
+    position: relative;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
-
 }
 
 @keyframes fade {
-    0% {opacity:0}
-    30% {opacity:60}
-    50% {opacity:100}
-    100% {opacity:100%}
+    0% {
+        opacity: 0
+    }
+    30% {
+        opacity: 60
+    }
+    50% {
+        opacity: 100
+    }
+    100% {
+        opacity: 100%
+    }
 }
 
 .c1 {
@@ -193,34 +207,30 @@ button {
 .c2 {
     flex-basis: 50%;
     padding: 10px;
-    
 }
 
 .H-title {
-
     color: #496de2f8;
 }
-.F-title{
 
+.F-title {
     color: #1e1e1e;
 }
 
-.form-group{
-
-    font-weight:bold;
+.form-group {
+    font-weight: bold;
     display: flex;
     flex-direction: row;
     align-items: center;
-
     flex-wrap: wrap;
     margin: 3vmin 0vmin;
     font-size: 1.2rem;
 }
 
-input{
+input {
     font-size: 1.1rem;
-    padding: 5px 5px; 
-    border-radius: 5px; 
+    padding: 5px 5px;
+    border-radius: 5px;
     border: 1px solid #1e1e1e
 }
 
@@ -244,7 +254,6 @@ input{
 }
 
 .title {
-
     font-size: 1.5rem;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -277,7 +286,7 @@ input{
 }
 
 .logout:hover {
-    color:#e24949f8;
+    color: #e24949f8;
     background-color: #fefefe;
     transition: 0.3s
 }
@@ -291,14 +300,12 @@ input{
     position: relative;
 }
 
-
-.buttons{
+.buttons {
     width: 80%;
     display: flex;
     justify-content: space-around;
     margin-top: 15px;
 }
-
 
 /*Login Page*/
 
@@ -309,7 +316,7 @@ input{
     width: 100vw;
     flex-direction: row;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around;
     animation: 3s fade;
 }
 
@@ -322,13 +329,13 @@ input{
     width: 100vw;
     flex-direction: row;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around;
     animation: 3s fade;
 }
 
 /* CPasscodes */
 
-.CPasscodes{
+.CPasscodes {
     overflow-x: hidden;
     padding: 10vmin 2vmin;
     display: flex;
@@ -336,15 +343,14 @@ input{
     width: 100vw;
     flex-direction: row;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around;
     flex-wrap: wrap;
     animation: 3s fade;
 }
 
-
 /* My Passcodes */
 
-.mypasscodes{
+.mypasscodes {
     overflow: hidden;
     padding: 10vmin 2vmin;
     display: flex;
@@ -353,33 +359,31 @@ input{
     align-items: stretch;
 }
 
-.b2{
+.b2 {
     display: flex;
     justify-content: center;
-    
 }
 
-.b1{
+.b1 {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
     margin-top: 8vh;
 }
 
-table{
+table {
     border: 3px solid #496de2f8;
     margin-top: 10vmin;
 }
 
-
-th{
+th {
     padding: 20px 5px;
     background-color: #496de2f8;
     color: #fefefe;
     font-size: 20px;
 }
 
-td{
+td {
     padding: 20px;
     text-align: center;
 }

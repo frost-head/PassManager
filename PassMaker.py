@@ -7,3 +7,10 @@ def get_pass(length):
     result = ''.join((random.choice(letters_and_digits)
                       for i in range(length)))
     return result
+
+
+def otp():
+    digits = string.digits
+    result = ''.join((random.choice(digits)
+                      for i in range(4)))
+    return result

@@ -7,44 +7,46 @@
 {%block body%}
 
 <div class="CPasscodes">
-    <div class="c1" >
+    <div class="c1">
         <h1 class="H-title"> Hello, {{data['name']}} </h1>
-        
+
         <p style='padding-top: 10px;'>
-            Pass Manager generates a secure, strong password for you of any length between 15 to 35 digits and copies it to your clipboard, saving you time. Or you can create your password as well. 
+            Pass Manager generates a secure, strong password for you of any length between 15 to 35 digits and copies it
+            to your clipboard, saving you time. Or you can create your password as well.
         </p>
     </div>
 
 
-<div class="c2">
-<form method="post" >
-    <h1 class='H-title'>Add a Site</h1>
+    <div class="c2">
+        <form method="post">
+            <h1 class='H-title'>Add a Site</h1>
 
-    <div class="form-group">
-        <label for="basic-url" class="c1">URL</label>
-        
-            <input type="text" required="required" class="c2 form-control" name="URL" aria-describedby="basic-addon3"
-                placeholder="lastnightreads.pythonanywhere.com">
+            <div class="form-group">
+                <label for="basic-url" class="c1">URL</label>
 
+                <input type="text" required="required" class="c2 form-control" name="URL"
+                    aria-describedby="basic-addon3" placeholder="lastnightreads.pythonanywhere.com">
+
+            </div>
+
+            <div class="form-group">
+                <label for="basic-url" class="c1">Username</label>
+
+                <input type="text" name="Username" class="c2 form-control" placeholder="Username" aria-label="Username"
+                    aria-describedby="addon-wrapping">
+
+            </div>
+
+            <div class="form-group">
+                <label for="inputAddress" class="c1">Password Length</label>
+                <input type="number" value='20' min='15' max="35" class="c2 form-control" id="inputAddress"
+                    name="passlen" required="required">
+            </div>
+
+            <button type="submit" class="Pbutton">Submit</button>
+            <a href="/CPasscodes1" class="Sbutton">Create My Own Password</a>
+        </form>
     </div>
-
-    <div class="form-group">
-        <label for="basic-url" class="c1">Username</label>
-        
-            <input type="text" name="Username" class="c2 form-control" placeholder="Username"
-                aria-label="Username" aria-describedby="addon-wrapping">
-
-    </div>
-    
-    <div class="form-group" >
-        <label for="inputAddress" class="c1">Password Length</label>
-        <input type="number" value='20' min='15' max="35" class="c2 form-control" id="inputAddress" name="passlen" required="required">
-    </div>
-
-    <button type="submit" class="Pbutton">Submit</button>
-    <a href="/CPasscodes1" class="Sbutton">Create My Own Password</a>
-</form>
-</div>
 
 </div>
 {%endblock%}

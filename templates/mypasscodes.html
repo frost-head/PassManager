@@ -7,38 +7,38 @@
 {% block body %}
 <div class="mypasscodes">
 
-<div class="b1 intro">
-<div class ='c1'>
-    <h1 class='H-title'>My Passwords</h1>
-    <p style='padding-top: 10px;'>
-        A software to keep your Passwords from getting forgot or being stolen. By encrypting them and storing
-        them in a secure vault. All you have to remember is a master password and Boom! you have all your
-        passwords.
-    </p>
-</div>
-<form method="post">
-    <h1 class='H-title'>Search</h1>
-    <div class="form-group ">
-        <label for="basic-url" class="c1 F-title">URL</label>
-        
-            <input type="text" required="required" class="form-control c2" name="URL" aria-describedby="basic-addon3"
-                placeholder="lastnightreads.pythonanywhere.com">
+    <div class="b1 intro">
+        <div class='c1'>
+            <h1 class='H-title'>My Passwords</h1>
+            <p style='padding-top: 10px;'>
+                A software to keep your Passwords from getting forgot or being stolen. By encrypting them and storing
+                them in a secure vault. All you have to remember is a master password and Boom! you have all your
+                passwords.
+            </p>
+        </div>
+        <form method="post">
+            <h1 class='H-title'>Search</h1>
+            <div class="form-group ">
+                <label for="basic-url" class="c1 F-title">URL</label>
+
+                <input type="text" required="required" class="form-control c2" name="URL"
+                    aria-describedby="basic-addon3" placeholder="lastnightreads.pythonanywhere.com">
+
+            </div>
+
+            <button type="submit" class="Pbutton">Search</button>
+        </form>
 
     </div>
 
-    <button type="submit" class="Pbutton">Search</button>
-</form>
-
-</div>
-
-<div class="b2">
-    {% if data%}
-        <table rules='all'  style="width: 95%;">
+    <div class="b2">
+        {% if data%}
+        <table rules='all' style="width: 95%;">
             <thead>
                 <tr>
-                    <th >Date Time</th>
-                    <th >URL</th>
-                    <th >Username</th>
+                    <th>Date Time</th>
+                    <th>URL</th>
+                    <th>Username</th>
                     <th>Delete</th>
                     <th>Copy</th>
                 </tr>
@@ -48,22 +48,24 @@
                 <tr>
                     <td style='width:10%'>{{info['date_time']}}</th>
                     <td style='width:50%'>{{info['url']}}</th>
-                    <td style='width:25%' >{{info['username']}}</th>
-                    <td style='width:13%'><a href="{{url_for('delete', primarykey = info['primarykey'])}}" class="Dbutton" >Delete </a></th>
-                    <td style='width:13%'><a href="{{url_for('copy', primarykey = info['primarykey'])}}" class="Pbutton " >Copy </a></th>
+                    <td style='width:25%'>{{info['username']}}</th>
+                    <td style='width:13%'><a href="{{url_for('delete', primarykey = info['primarykey'])}}"
+                            class="Dbutton">Delete </a></th>
+                    <td style='width:13%'><a href="{{url_for('copy', primarykey = info['primarykey'])}}"
+                            class="Pbutton ">Copy </a></th>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-    {% elif 'user' in session%}
-    <div style='text-align: center; margin-top:10vh;';>
-    <h1 style='padding:5vmin 0vmin;' class='H-title '>No Passwords Added Yet!</h1>
+        {% elif 'user' in session%}
+        <div style='text-align: center; margin-top:10vh;' ;>
+            <h1 style='padding:5vmin 0vmin;' class='H-title '>No Passwords Added Yet!</h1>
 
-    <a href="/CPasscodes" style='margin-top:20vh;' class='Sbutton'>Add Password</a>
+            <a href="/CPasscodes" style='margin-top:20vh;' class='Sbutton'>Add Password</a>
+        </div>
+        {% endif %}
+
     </div>
-    {% endif %}
-
-</div>
 </div>
 
 {% endblock %}
