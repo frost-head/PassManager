@@ -184,6 +184,10 @@ button {
     justify-content: space-between;
 }
 
+.introM {
+    display: none;
+}
+
 @keyframes fade {
     0% {
         opacity: 0
@@ -387,3 +391,75 @@ td {
     padding: 20px;
     text-align: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    .Home {
+        padding: 10vmin 2vmin;
+        overflow-x: hidden;
+        margin-top: 10vh;
+        position: relative;
+    }
+    
+    .introM {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .intro-A{
+        display: none;
+    }
+
+    .Ttext{
+        display: none;
+    }
+
+    .links {
+        display: none;
+    }
+    
+    .logout {
+        display: none;
+    }
+
+    /*Login Page*/
+    
+    .Login {
+        display: none;
+    }
+    
+    /*Register Page*/
+    
+    .Register {
+        display: none;
+    }
+    
+    /* CPasscodes */
+    
+    .CPasscodes {
+        display: none;
+    }
+    
+    /* My Passcodes */
+    
+    .mypasscodes {
+        display: none;
+    }
+    }
