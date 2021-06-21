@@ -128,19 +128,25 @@ def copy(primarykey):
         flash("Please Login", 'danger')
         return redirect('/login')
     cur = mysql.connection.cursor()
-    cur.execute(
-        "select `passcode`,`etext` from main where `primarykey` = '{}' ORDER BY date_time DESC".format(primarykey))
-    data = cur.fetchone()
-    cur.close()
-    etext = FrostDCrypt(data['etext'], str(session['user']))
-    passcode = FrostDCrypt(data['passcode'], etext)
 
-    try:
-        pyperclip.copy(passcode)
-    except(PermissionError):
-        print("There is an error!")
-    flash('Password Copied', 'success')
-    return redirect('/mypasscodes')
+    cur.execute(
+        "select `passcode`,`etext` from main where `primarykey` = '{}' and `uid` = '{}' ORDER BY date_time DESC".format(primarykey,session['user']))
+    data = cur.fetchone()  
+    cur.close() 
+    if data:
+        etext = FrostDCrypt(data['etext'], str(session['user']))
+        passcode = FrostDCrypt(data['passcode'], etext)
+        try:
+            pyperclip.copy(passcode)
+        except(PermissionError):
+            print("There is an error!")
+        flash('Password Copied', 'success')
+        return redirect('/mypasscodes')
+    else: 
+        return ('Ops Something Went Wrong')
+
+    
+    
 
 
 @app.route('/delete/<primarykey>')
@@ -149,7 +155,7 @@ def delete(primarykey):
         flash("Please Login", 'danger')
         return redirect('/login')
     cur = mysql.connection.cursor()
-    cur.execute("delete from main where primarykey = {}".format(primarykey))
+    cur.execute("delete from main where primarykey = {} and `uid` = {}".format(primarykey,session['user']))
     mysql.connection.commit()
     cur.close()
     flash('Password Deleted', 'danger')
