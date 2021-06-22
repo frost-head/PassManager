@@ -123,6 +123,35 @@ button {
     transition: 0.3s
 }
 
+.alert {
+    font-weight: bolder;
+    padding: 2vmin;
+    width: 80vw;
+    position: absolute;
+    opacity: 0;
+    animation: 3s Ttext;
+    margin-top: 10vh;
+    z-index: -10;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    border: 2px solid;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.alert-danger{
+    color: #e24949f8;
+    background-color: rgba(214, 67, 67, 0.2);
+    border: 1px solid;
+}
+
+.alert-success{
+    color: #409445;
+    background-color: rgba(62, 165, 71, 0.2);
+    border: 1px solid;
+}
+
 .Ttext {
     font-weight: bolder;
     height: 60vh;
