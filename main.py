@@ -5,7 +5,7 @@ from flask_mysqldb import MySQL
 import os
 from passlib.hash import sha256_crypt
 from FrostCryption import *
-from PassMaker import get_pass
+from PassMaker import get_pass, Secret_Key
 import pyperclip
 #from SendEmails import *
 
@@ -183,15 +183,16 @@ def register():
         password = sha256_crypt.encrypt(str(request.form['password']))
         name = request.form['name']
         email = request.form['email']
-
+        private_key = Secret_Key()
+        SecKey = sha256_crypt.encrypt(str(private_key))
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO user(name, email, password, username) VALUES(%s, %s, %s, %s)",
-                    (name, email, password, username))
+        cur.execute("INSERT INTO user(name, email, password, username, privatekeys) VALUES(%s, %s, %s, %s, %s)",
+                    (name, email, password, username, SecKey))
         mysql.connection.commit()
 
         cur.close()
         flash('You are successfully Registered', 'success')
-        return redirect('/login')
+        return render_template('SecretKeys.html', SecKey = private_key)
 
     return render_template("Register.html")
 
@@ -223,6 +224,51 @@ def login():
         else:
             flash('User not Found', 'danger')
     return render_template('Login.html')
+
+
+# Forgot Password
+@app.route('/forgot_password', methods=['GET', 'POST'])
+def forgot_password():
+    if 'user' in session:
+        return redirect('/')
+    else:
+        if request.method == 'POST':
+            SecKey = request.form['key']
+            username = request.form['username']
+            cur = mysql.connection.cursor()
+            cur.execute(
+                "select uid,privatekeys from user where username = %s", [username])
+            data = cur.fetchone()
+            cur.close()
+            if data:
+                privatekeys = data['privatekeys']
+                uid = data["uid"]
+                if sha256_crypt.verify(SecKey, privatekeys):
+                    session['user'] = uid
+                    flash('Successfully logged in', 'success')
+                    return redirect('/ChangePassword')
+                else:
+                    flash('Invalid Private Key', 'danger')
+            else:
+                flash('User Not Found', 'danger') 
+        return render_template('forgot_password.html')
+
+@app.route('/ChangePassword', methods=['GET','POST'])
+def ChangePassword():
+    if "user" not in session:
+        flash('Ops! something went wrong', 'danger')
+        return redirect('/login')
+    if request.method == 'POST':
+        password = sha256_crypt.encrypt(str(request.form['password']))
+        private_key = Secret_Key()
+        SecKey = sha256_crypt.encrypt(str(private_key))
+        cur = mysql.connection.cursor()
+        cur.execute("update user set password = %s,privatekeys = %s where uid = %s",(str(password), SecKey,session['user']))
+        mysql.connection.commit()
+        cur.close()
+        flash('Password changed','success')
+        return render_template('SecretKeys.html', SecKey = private_key)
+    return render_template('ChangePassword.html')
 
 
 # LOGOUT ROUTE

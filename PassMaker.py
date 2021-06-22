@@ -9,8 +9,8 @@ def get_pass(length):
     return result
 
 
-def otp():
+def Secret_Key():
     digits = string.digits
     result = ''.join((random.choice(digits)
-                      for i in range(4)))
+                      for i in range(20)))
     return result
