@@ -218,7 +218,7 @@ def login():
             if sha256_crypt.verify(passcode, password):
                 session['user'] = uid
                 flash('Successfully logged in', 'success')
-                return redirect('CPasscodes')
+                return redirect('/CPasscodes')
             else:
                 flash('Invalid Log In', 'danger')
         else:
